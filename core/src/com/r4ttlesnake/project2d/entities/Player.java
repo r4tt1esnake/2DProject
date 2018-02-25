@@ -17,16 +17,16 @@ public class Player extends Entity {
 	@Override
 	public void update() {
 		if(playerInput.down) {
-			y -= 3;
+			y -= 1;
 		}
 		if(playerInput.up) {
-			y += 3;
+			y += 1;
 		}
 		if(playerInput.right) {
-			x += 3;
+			x += 1;
 		}
 		if(playerInput.left) {
-			x -= 3;
+			x -= 1;
 		}
 	}
 

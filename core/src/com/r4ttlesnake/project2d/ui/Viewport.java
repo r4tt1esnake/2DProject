@@ -13,6 +13,7 @@ public class Viewport {
 	private int displayW;
 	private int displayH;
 	
+	@SuppressWarnings("unused")
 	private int x, y;
 	
 	public Viewport(Entity currEntity) {
