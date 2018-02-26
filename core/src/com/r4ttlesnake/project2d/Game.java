@@ -1,9 +1,8 @@
 package com.r4ttlesnake.project2d;
 
 import com.badlogic.gdx.ApplicationAdapter;
-
-
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -12,23 +11,21 @@ import com.r4ttlesnake.project2d.ui.Viewport;
 
 public class Game extends ApplicationAdapter {
 	
-	/*
-	 * ALL PRAISE THE GREAT DEBUG BOOLEAN!
-	 */
+	// ALL PRAISE THE GREAT DEBUG BOOLEAN!
 	public static final boolean DEBUG = false;
 	
 	// Never ever initialize objects here - please only declare pointers!
 	SpriteBatch batch;
 	Texture img;
 	Viewport mainCam;
-	EntityManager entityManager;
 	Player hero;
+	AssetManager assetManager;
 	
 	@Override
 	public void create () {
+		assetManager = new AssetManager();
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
-		entityManager = new EntityManager();
 		hero = new Player("Bobe");
 		mainCam = new Viewport(hero);
 	}
@@ -38,13 +35,14 @@ public class Game extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		entityManager.update();
+		EntityManager.update();
 		mainCam.update();
 		
 		batch.setProjectionMatrix(mainCam.playerView.combined);
 		batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		
 		batch.begin();
+		batch.disableBlending();
 		batch.draw(img, 0, 0);
 		batch.end();
 	}

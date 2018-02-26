@@ -4,11 +4,7 @@ import com.r4ttlesnake.project2d.entities.Entity;
 
 public class EntityManager {
 	
-	public void addEntity(Entity e) {
-		Entity.entityList.add(e);
-	}
-	
-	public void update() {
+	public static void update() {
 		for(int i = 0; i < Entity.entityList.size(); i++) {
 			if(Entity.entityList.get(i).exists = false) {
 				Entity.entityList.remove(i);
