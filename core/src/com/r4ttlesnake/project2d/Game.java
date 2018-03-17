@@ -26,7 +26,7 @@ public class Game extends ApplicationAdapter {
 		assetManager = new AssetManager();
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
-		hero = new Player("Bobe");
+		hero = new Player("Bob");
 		mainCam = new Viewport(hero);
 	}
 
